@@ -2,7 +2,7 @@
 
 
 ## Imaging Technique Inspiration - Montage
-I found inspiration in Guillaume Chiron’s collage poster designs on Pinterest. His use of cut-out newspaper elements and layered textures creates a playful yet thought-provoking aesthetic. The montage technique combines fragmented images into a coherent composition, giving the work both depth and narrative tension. I believe incorporating this approach into my project could enhance its visual impact by adding richness and a handmade feel. It would also help communicate abstract ideas in a more engaging way, aligning with the creative and experimental direction of the assignment.
+I found inspiration in Guillaume Chiron’s collage poster designs on Pinterest. His use of cut-out newspaper elements and layered textures creates a playful yet thought-provoking aesthetic. The **montage** technique combines fragmented images into a coherent composition, giving the work both depth and narrative tension. I believe incorporating this approach into my project could enhance its visual impact by adding richness and a handmade feel. It would also help communicate abstract ideas in a more engaging way, aligning with the creative and experimental direction of the assignment.
 
 **Example images:**  
 ![An image of the Montage example](images/montage1.jpg)
