@@ -1,7 +1,15 @@
+const BG_COLOR = '#212121ff';
+
 function setup() {
-  createCanvas(400, 400);
+  createCanvas(windowWidth, windowHeight);
+  noStroke();
+  rectMode(CENTER);
 }
 
 function draw() {
-  background(220);
+  background(BG_COLOR);
+}
+//window resized
+function windowResized() {
+  resizeCanvas(windowWidth, windowHeight);
 }
