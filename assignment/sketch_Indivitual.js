@@ -1,8 +1,11 @@
+//------let section-------------//
 let img;
 let clickCount = 0;
-
+let bgImg
+//------function section-------------------------//
 function preload() {
-  img = loadImage("assets/scream_collage.png"); 
+   bgImg = loadImage("assets/background2.jpg");
+    img = loadImage("assets/scream_collage.png"); 
 }
 
 function setup() {
@@ -10,7 +13,11 @@ function setup() {
 }
 
 function draw() {
-  background(0);
+    if (bgImg) {
+    image(bgImg, 0, 0, width, height); 
+  } else {
+    background(0);
+  }
 
   drawOrangesky();
   drawWater();
