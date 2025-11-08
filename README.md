@@ -12,5 +12,8 @@
 5. **Wait a few seconds**, shaking and redness will fade naturally.  
 
 ## 🧠 Individual Animation Approach
-My personal version is driven by **User Input**, not time or audio.  
-Every user action directly alters the emotional state of the scene.
+My personal version is driven by **User Input**, not time or audio.  Every user action directly alters the emotional state of the scene.
+| Input Type | Effect |
+|-------------|--------|
+| Mouse Click | Increases anxiety, triggers shaking & red overlay |
+| Time Decay | Gradually reduces anxiety for calm recovery |
