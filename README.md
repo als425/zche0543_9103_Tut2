@@ -1,15 +1,16 @@
-# Week 8 Quiz
+# The Scream - Interactive Emotional Recreation
 
 
-## Imaging Technique Inspiration - Montage
-I found inspiration in Guillaume Chiron’s collage poster designs on Pinterest. His use of cut-out newspaper elements and layered textures creates a playful yet thought-provoking aesthetic. The **montage** technique combines fragmented images into a coherent composition, giving the work both depth and narrative tension. I believe incorporating this approach into my project could enhance its visual impact by adding richness and a handmade feel. It would also help communicate abstract ideas in a more engaging way, aligning with the creative and experimental direction of the assignment.
+## How to Interact with the Artwork
+1. Open the sketch in your browser (index.html).
+2. Wait for it to load — the background image, collage, and texture will appear automatically.
+3. **Click anywhere** on the screen:  
+   - Each click **raises the anxiety level**.  
+   - The main collage image **shakes** more intensely.  
+   - A **red translucent overlay** strengthens across the screen.  
+4. **Watch the top-left anxiety bar:**  It fills with red as anxiety builds.  
+5. **Wait a few seconds**, shaking and redness will fade naturally.  
 
-**Example images:**  
-![An image of the Montage example](images/montage1.jpg)
-![An image of the Montage example](images/montage2.jpg)
-## Coding Technique Exploration - p5.js Masking + Blend Modes
-Using **p5.js** can help me bring the collage idea into a digital form. The functions **mask()** and **blendMode()** make it possible to cut shapes and layer different images, similar to how paper collage works. With **createGraphics()**, I can manage each layer on its own, then combine them together. This gives me freedom to try many textures and layouts quickly. It also makes the design look handmade but still flexible to change, which matches the style of Guillaume Chiron’s posters.
-**Example Screen shot and code link:**  
-[p5.js mask reference](https://p5js.org/reference/#/p5.Image/mask)  
-![example of screen shot](images/screenshot.png)
-
+## 🧠 Individual Animation Approach
+My personal version is driven by **User Input**, not time or audio.  
+Every user action directly alters the emotional state of the scene.
