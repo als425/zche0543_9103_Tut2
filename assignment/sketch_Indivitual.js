@@ -5,7 +5,7 @@ function setup() {
 function draw() {
   background(0);
 
-  drawSky();
+  drawOrangesky();
 
   drawWater();
 
@@ -16,27 +16,42 @@ function draw() {
   drawScreamingPeople();
 }
 
-function drawSky() {
-  // Orange and yellow wavy bands
-  for (let i = 0; i < height * 0.4; i += 15) {
-    let wave = sin(i * 0.05) * 50;
-    let wave2 = cos(i * 0.08) * 30;
-    // Orange to yellow gradient
-    let r = 255 - i * 0.2 + sin(i * 0.1) * 20;
-    let g = 150 + i * 0.3 + cos(i * 0.15) * 15;
-    fill(r, g, 0, 180);
-    noStroke();
-    // Draw wavy bands using rectangles
-    for (let x = 0; x < width; x += 5) {
-      let y = i + sin(x * 0.01 + i * 0.05) * 30 + sin(x * 0.02 + i * 0.1) * 20 + wave + wave2;
-      rect(x, y, 5, 20);
+function drawOrangesky() {
+  const skyH = height * 0.4; // sky band height 
+
+  // GRID DATA
+  const GRID_SIZE = 40;// grid size
+  const AMP  = 36;//wave amplitude
+  const FREQ = 0.5;
+  const PAD  = 6;// inner padding around each rect
+  const ORANGE = [
+    '#FFB84C','#FFA559','#FF8E3C','#FF7F3F','#FF9F45','#F4A261','#E67E22'
+  ];
+
+  const cols = max(6, floor(width / GRID_SIZE));
+  const rows = max(3, floor(skyH / GRID_SIZE));
+  const cellW = width / cols;
+  const cellH = skyH / rows;
+
+  noStroke();
+  rectMode(CENTER);
+
+  for (let gy = 0; gy < rows; gy++) {
+    const rowPhase = gy * 0.9; // static row offset
+    for (let gx = 0; gx < cols; gx++) {
+      const cx = gx * cellW + cellW / 2;
+      const cy = gy * cellH + cellH / 2;
+      const waveY = AMP * sin(gx * FREQ + rowPhase);
+      const col = ORANGE[(gx + gy) % ORANGE.length];
+      fill(col);
+      rect(cx, cy + waveY, cellW - PAD, cellH - PAD, 6);
     }
   }
 }
 
 function drawWater() {
   // Dark swirling blues and purples
-  for (let i = height * 0.4; i < height * 0.7; i += 12) {
+  for (let i = height * 0.6; i < height * 0.75; i += 12) {
     let wave = sin(i * 0.1) * 40;
     let wave2 = cos(i * 0.15) * 30;
     // More color variation
@@ -56,7 +71,7 @@ function drawWater() {
 function drawBridge() {
   // Bridge from left middle to bottom middle
   let startX = 0;
-  let startY = height * 0.4;
+  let startY = height *0.3;
   let endX = width * 0.8;
   let endY = height;
   
@@ -67,9 +82,11 @@ function drawBridge() {
   push();
   translate(startX, startY);
   rotate(angle);
+
+  rectMode(CORNER);
   
   // Bridge surface
-  fill(80, 40, 20, 200);
+  fill(80, 40, 20, 300);
   noStroke();
   rect(10, 10, bridgeLength, 500);
   rect(-100, -50, bridgeLength + 300, 30);
