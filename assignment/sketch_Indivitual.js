@@ -1,4 +1,5 @@
 let img;
+let clickCount = 0;
 
 function preload() {
   img = loadImage("assets/scream_collage.png"); 
@@ -140,6 +141,11 @@ function drawScreamImage() {// the image is nor work before, finding a method to
   }
 
   console.log("Image loaded successfully");
+
+  let shake = min(clickCount * 2, 50); //the biggest shaking:50px
+  let dx = random(-shake, shake);
+  let dy = random(-shake, shake);
+
   let aspectRatio = img.width / img.height;
   let newWidth = width * 0.6; 
   let newHeight = newWidth / aspectRatio;
@@ -152,7 +158,11 @@ function drawScreamImage() {// the image is nor work before, finding a method to
   let x = (width - newWidth) / 2; // Center the image horizontally
   let y = height - newHeight; // Position the image at the bottom
 
-  image(img, x, y, newWidth, newHeight);
+  image(img, x + dx, y + dy, newWidth, newHeight); 
+}
+
+function mousePressed() {
+  clickCount++; 
 }
 
 function windowResized() {
