@@ -1,15 +1,21 @@
 //------let section-------------//
 let img;
 let clickCount = 0;
-let bgImg
+let bgImg;
+
+let waterTexture;
+let waterMask;
+let maskedWater;
 //------function section-------------------------//
 function preload() {
    bgImg = loadImage("assets/background2.jpg");
     img = loadImage("assets/scream_collage.png"); 
+    waterTexture = loadImage("assets/water.jpg");
 }
 
 function setup() {
   createCanvas(windowWidth, windowHeight);
+  waterMask = createGraphics(width, height); 
 }
 
 function draw() {
@@ -64,6 +70,10 @@ function drawOrangesky() {
 }
 
 function drawWater() {
+    // water mask
+    waterMask.clear();
+    waterMask.noStroke();
+    waterMask.fill(255);
     // Dark swirling blues and purples
   for (let i = height * 0.6; i < height * 0.75; i += 12) {
     let wave = sin(i * 0.1) * 40;
@@ -78,7 +88,19 @@ function drawWater() {
     for (let x = 0; x < width; x += 3) {
       let y = i + sin(x * 0.02 + i * 0.1) * 25 + sin(x * 0.03 + i * 0.2) * 15 + cos(x * 0.015 + i * 0.12) * 10 + wave + wave2;
       rect(x, y, 3, height - y);
+      waterMask.rect(x, y, 3, height - y);
     }
+  }
+
+  //water mask
+  if(waterTexture){
+    maskedWater = waterTexture.get();
+    maskedWater.mask(waterMask);
+
+    push();
+    //tint(200, 220) 
+    image(maskedWater,0,0,width,height);
+    pop();
   }
 }
 
@@ -196,4 +218,5 @@ function drawAnxietyLayer() {
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
+  waterMask = createGraphics(width, height); 
 }
