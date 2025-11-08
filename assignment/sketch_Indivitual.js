@@ -17,7 +17,11 @@ function draw() {
   drawBridge();
   drawBGPeople();
   drawScreamImage();
-  drawAnxietyLayer()
+  drawAnxietyLayer();
+
+   if (clickCount > 0) {
+    clickCount -= 0.05; //
+  }
 }
 
 function drawOrangesky() {
@@ -58,9 +62,9 @@ function drawWater() {
     let wave = sin(i * 0.1) * 40;
     let wave2 = cos(i * 0.15) * 30;
     // More color variation
-    let r = 20 + sin(i * 0.2) * 10;
-    let g = 30 + i * 0.3 + cos(i * 0.25) * 15;
-    let b = 60 + i * 0.2 + sin(i * 0.3) * 20;
+    let r = 30 + sin(i * 0.1) * 5;
+    let g = 50 + i * 0.15 + cos(i * 0.1) * 15;
+    let b = 90 + i * 0.1 + sin(i * 0.2) * 10;
     fill(r, g, b, 160);
     noStroke();
     // Draw wavy water using rectangles
@@ -175,6 +179,7 @@ function drawAnxietyLayer() {
 
   push();
   noStroke();
+  blendMode(OVERLAY);// layer effect
   rectMode(CORNER);
   fill(255, 50, 50, intensity);
   rect(0, 0, width, height);
