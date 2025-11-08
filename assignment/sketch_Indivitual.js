@@ -17,6 +17,7 @@ function draw() {
   drawBridge();
   drawBGPeople();
   drawScreamImage();
+  drawAnxietyLayer()
 }
 
 function drawOrangesky() {
@@ -164,6 +165,22 @@ function drawScreamImage() {// the image is nor work before, finding a method to
 function mousePressed() {
   clickCount++; 
 }
+
+function drawAnxietyLayer() {
+  if (clickCount <= 0) {
+    return; 
+  }
+
+  let intensity = min(clickCount * 10, 180); 
+
+  push();
+  noStroke();
+  rectMode(CORNER);
+  fill(255, 50, 50, intensity);
+  rect(0, 0, width, height);
+  pop();
+}
+
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
