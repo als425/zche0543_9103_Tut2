@@ -25,12 +25,13 @@ function draw() {
     background(0);
   }
 
-  drawOrangesky();
-  drawWater();
-  drawBridge();
-  drawBGPeople();
-  drawScreamImage();
-  drawAnxietyLayer();
+drawOrangesky();
+drawWater();
+drawBridge();
+drawBGPeople();
+drawScreamImage();
+drawAnxietyLayer();
+drawAnxietyBar();
 
    if (clickCount > 0) {
     clickCount -= 0.05; //
@@ -215,6 +216,39 @@ function drawAnxietyLayer() {
   pop();
 }
 
+//a anxiety progress bar at top-left corner
+function drawAnxietyBar() {
+
+  let maxAnxiety = 50; 
+  let barWidth = 200; 
+  let barHeight = 14; 
+  let marginX = 20;
+  let marginY = 20; 
+
+  let t = constrain(clickCount, 0, maxAnxiety);
+  let filled = map(t, 0, maxAnxiety, 0, barWidth);
+
+  push();
+  noStroke();
+
+  // background of the bar
+  fill(0, 0, 0, 150);
+  rect(marginX - 4, marginY - 16, barWidth + 8, barHeight + 24);
+
+  // empty bar outline
+  fill(60);
+  rect(marginX, marginY, barWidth, barHeight);
+
+  // filled part (anxiety level)
+  fill(255, 80, 80);
+  rect(marginX, marginY, filled, barHeight);
+
+  // label text
+  fill(255);
+  textSize(12);
+  text("Anxiety level", marginX, marginY - 4);
+  pop();
+}
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
