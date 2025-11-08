@@ -1,3 +1,9 @@
+let img;
+
+function preload() {
+ 
+  img = loadImage("assets/scream_collage.png");
+}
 function setup() {
   createCanvas(windowWidth, windowHeight);
 }
@@ -13,7 +19,7 @@ function draw() {
 
   drawBGPeople();
 
-  drawScreamingPeople();
+  drawScreamingImage();
 }
 
 function drawOrangesky() {
@@ -37,7 +43,7 @@ function drawOrangesky() {
   rectMode(CENTER);
 
   for (let gy = 0; gy < rows; gy++) {
-    const rowPhase = gy * 0.9; // static row offset
+    const rowPhase = gy * 0.9; // slightly offsetting each row’s wave phase to make the pattern look more dynamic and less repetitive.
     for (let gx = 0; gx < cols; gx++) {
       const cx = gx * cellW + cellW / 2;
       const cy = gy * cellH + cellH / 2;
@@ -134,54 +140,26 @@ function drawBGPeople() {
   ellipse(fig2X + 5, fig2Y + 35, 8, 50);
 }
 
+function drawScreamImage() {
+  if (!img) return;
 
-function drawScreamingPeople() {
-  push();
-  translate(width * 0.5, height * 0.85);
-  
-  noFill();
-  
-  // Scream effect
-  noFill();
-  stroke(255, 200, 100, 100);
-  strokeWeight(3);
-  ellipse(0, -60, 120, 150);
-  ellipse(0, -60, 180, 220);
-  ellipse(0, -60, 240, 290);
-  ellipse(0, -60, 300, 360);
-  
-  // Scream effect 2
-  stroke(255, 150, 50, 80);
-  strokeWeight(2);
-  ellipse(0, -60, 150, 180);
-  ellipse(0, -60, 210, 250);
-  ellipse(0, -60, 270, 320);
+  let aspectRatio = img.width / img.height;
+  let newWidth = width * 0.6; 
+  let newHeight = newWidth / aspectRatio;
 
-  // Body
-  fill(30, 40, 60);
-  noStroke();
-  ellipse(0, 20, 80, 200);
+  if (newHeight > height * 0.6) {
+    newHeight = height * 0.6;
+    newWidth = newHeight * aspectRatio;
+  }
+
+
+  let x = (width - newWidth) / 2;//the collage work appeared at the end of window
+  let y = height - newHeight;
+
+  image(img, x, y, newWidth, newHeight);
   
-  // Head
-  fill(200, 220, 150);
-  ellipse(0, -60, 70, 90);
-  
-  // Eyes
-  fill(20);
-  ellipse(-15, -70, 12, 15);
-  ellipse(15, -70, 12, 15);
-  
-  // Mouth
-  fill(40, 30, 20);
-  ellipse(0, -40, 35, 50);
-  
-  // Hands on head
-  fill(200, 220, 150);
-  ellipse(-45, -75, 25, 40);
-  ellipse(45, -75, 25, 40);
-  
-  pop();
 }
+
 
 function windowResized() {
   resizeCanvas(windowWidth, windowHeight);
