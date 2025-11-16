@@ -1,6 +1,5 @@
 # The Scream - Interactive Emotional Recreation
 
-
 ## How to Interact with the Artwork
 1. Open the sketch in your browser (index.html).
 2. Wait for it to load — the background image, collage, and texture will appear automatically.
@@ -46,3 +45,6 @@ In J. Robertson (Ed.), *The art of assemblage and collage*. Routledge.
 Munch, E. (1893). *The Scream* [Painting]. National Museum of Art, Architecture and Design, Oslo.  
 
 p5.js. (2024). *p5.js Reference.* Retrieved from https://p5js.org/reference/  
+
+## Appendix
+![When the character in low anxiety level](images/TheScream_low.png)![When the character in high anxiety level](images/TheScream_high.png)
