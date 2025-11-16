@@ -28,7 +28,17 @@ The collage technique allows for tension between unity and chaos. It's mirroring
 This artistic metaphor helped shape the visual layering, shaking, and overlapping textures in my code-based recreation of *The Scream*.  
 As scholar Graham (2008) notes, *“collage operates through rupture and recombination, revealing the instability of meaning and identity”*, that aligns closely with the emotional volatility I aimed to represent through motion and interaction.  
 
-## References (APA 7)
+## Layer Effect skil in P5js
+In this project, I utilized **layer effects** in p5.js to create emotional depth and tension in the artwork. Layer effects allow different visual elements to interact with each other, influencing how they blend and how we perceive them. By using various blend modes, I was able to simulate the psychological effect of anxiety and calmness in the scene.
+The **blendMode()** 
+1. **Normal**
+2. **Overlay**
+3. **Multiply**
+By dynamically changing the blend mode, I created a shift in visual representation, making the emotional impact of the scene more vivid and intense with each mouse click. These effects reflect the process of emotional escalation and eventual calm, as the user interacts with the artwork.
+
+
+
+## References
 
 Graham, D. (2008). *Collage: The cut and the constructed self*.  
 In J. Robertson (Ed.), *The art of assemblage and collage*. Routledge.  

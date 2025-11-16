@@ -8,8 +8,8 @@ let waterMask;
 let maskedWater;
 //------function section-------------------------//
 function preload() {
-   bgImg = loadImage("assets/background2.jpg");
-    img = loadImage("assets/scream_collage.png"); 
+   bgImg = loadImage("assets/background2.jpg");//backgroudn image(texture)
+    img = loadImage("assets/scream_collage.png"); //the collage work fo the scream
     waterTexture = loadImage("assets/water.jpg");
 }
 
@@ -24,7 +24,7 @@ function draw() {
   } else {
     background(0);
   }
-
+// draw the layer one by one
 drawOrangesky();
 drawWater();
 drawBridge();
@@ -33,6 +33,7 @@ drawScreamImage();
 drawAnxietyLayer();
 drawAnxietyBar();
 
+//the click input. Once the user didn't click, the laye effect decrease thourgh the time.
    if (clickCount > 0) {
     clickCount -= 0.05; //
   }
@@ -47,7 +48,7 @@ function drawOrangesky() {
   const PAD = 6; // inner padding around each rect
   const ORANGE = [
     '#FFB84C', '#FFA559', '#FF8E3C', '#FF7F3F', '#FF9F45', '#F4A261', '#E67E22'
-  ];
+  ];// the orange color palette.
 
   const cols = max(6, floor(width / GRID_SIZE));
   const rows = max(3, floor(skyH / GRID_SIZE));
@@ -56,12 +57,12 @@ function drawOrangesky() {
 
   noStroke();
   rectMode(CENTER);
-
+//draw the grid
   for (let gy = 0; gy < rows; gy++) {
     const rowPhase = gy * 0.9; // slightly offsetting each row’s wave phase
     for (let gx = 0; gx < cols; gx++) {
-      const cx = gx * cellW + cellW / 2;
-      const cy = gy * cellH + cellH / 2;
+      const cx = gx * cellW + cellW / 2;//calculate the centre of gird's X position
+      const cy = gy * cellH + cellH / 2;//calculate the centre of gird's Y position
       const waveY = AMP * sin(gx * FREQ + rowPhase);
       const col = ORANGE[(gx + gy) % ORANGE.length];
       fill(col);
@@ -99,7 +100,6 @@ function drawWater() {
     maskedWater.mask(waterMask);
 
     push();
-    //tint(200, 220) 
     image(maskedWater,0,0,width,height);
     pop();
   }
